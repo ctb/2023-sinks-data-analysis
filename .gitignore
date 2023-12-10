@@ -1,0 +1,7 @@
+*.sig.gz
+*.fasta
+*.gz
+*.csv
+*.out
+*.zip
+*~
