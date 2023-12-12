@@ -1,4 +1,7 @@
 #! /usr/bin/env python
+"""
+Combine multiple sourmash tax metagenome -F kreport files.
+"""
 import sys
 import csv
 import argparse
