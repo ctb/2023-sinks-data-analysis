@@ -17,7 +17,7 @@ def main():
         df = pd.read_csv(filename, sep='\t',
                          names=['percent', 'bp', 'a', 'rank', 'empty', 'name'])
 
-        df = df[df['rank'] == 'S']
+        df = df[df['rank'].isin(['S', 'U'])]
         df = df[['percent', 'name']]
         df = df.rename(columns={'percent': name})
         dfs.append(df)
