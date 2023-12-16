@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 """
-Combine multiple sourmash tax metagenome -F kreport files.
+Combine multiple sourmash containment reports for isolates x many metagenomes.
 """
 import sys
 import csv
