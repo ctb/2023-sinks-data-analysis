@@ -29,28 +29,21 @@ def main():
 
     print('merging...')
 
-    join_df = dfs.pop()
+    # use pop(0) to keep columns in same order as the files were passed
+    # in on the command line
+    join_df = dfs.pop(0)
     while dfs:
-        df = dfs.pop()
+        df = dfs.pop(0)
         join_df = join_df.merge(df, on='name', how='outer')
 
     # replace NA with 0
     join_df.fillna(0, inplace=True)
     print(join_df.head())
 
-    # rearrange column order to have 'name' first
+    # get data column names & add in a max column
     cols = join_df.columns.tolist()
     cols.remove('name')
-    cols.sort()
     data_cols = list(cols)
-
-    # add name back in
-    cols.insert(0, 'name')
-
-    # reorder cols
-    join_df = join_df[cols]
-
-    # add in a max column
     join_df['max'] = join_df[data_cols].max(axis=1)
 
     # sort!
