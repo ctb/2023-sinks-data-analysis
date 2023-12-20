@@ -50,8 +50,6 @@ def main():
 
     print(combined_df.head())
 
-    #join_df.sort_values(by='max', inplace=True, ascending=False)
-
     # get the list of data columns
     cols = combined_df.columns.tolist()
     cols.remove('genome')
@@ -64,7 +62,7 @@ def main():
     combined_df.sort_values(by='max', inplace=True, ascending=False)
 
     # save!
-    combined_df.to_csv(args.output)
+    combined_df.to_csv(args.output, index=False)
 
 
 if __name__ == '__main__':
